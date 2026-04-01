@@ -1,0 +1,62 @@
+{
+    "name": "@hapi/oxc-plugin",
+    "version": "1.0.0",
+    "description": "Oxlint & Oxfmt plugin containing hapi style guide rules and config",
+    "keywords": [
+        "hapi",
+        "lint",
+        "oxfmt",
+        "oxlint"
+    ],
+    "license": "BSD-3-Clause",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/hapijs/oxc-plugin.git"
+    },
+    "files": [
+        "src"
+    ],
+    "type": "module",
+    "main": "src/index.js",
+    "types": "src/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./src/index.d.ts",
+            "import": "./src/index.js"
+        },
+        "./oxlint": {
+            "types": "./src/configs/recommended.d.ts",
+            "import": "./src/configs/recommended.js"
+        },
+        "./oxfmt": {
+            "types": "./src/configs/oxfmt.config.d.ts",
+            "import": "./src/configs/oxfmt.config.js"
+        },
+        "./vitest": {
+            "types": "./src/vitest.d.ts",
+            "import": "./src/vitest.js"
+        }
+    },
+    "scripts": {
+        "test": "vitest run",
+        "lint": "oxlint && oxfmt --check",
+        "lint:fix": "oxlint --fix && oxfmt --write"
+    },
+    "dependencies": {
+        "@oxlint/plugins": "^1.68.0"
+    },
+    "devDependencies": {
+        "@hapi/oxc-plugin": "file:.",
+        "@vitest/coverage-v8": "^4.1.8",
+        "oxfmt": "^0.54.0",
+        "oxlint": "^1.69.0",
+        "vitest": "^4.1.8"
+    },
+    "peerDependencies": {
+        "oxfmt": ">=0.53.0",
+        "oxlint": ">=1.68.0"
+    },
+    "engines": {
+        "node": ">=22"
+    }
+}
