@@ -1,6 +1,9 @@
 import { defineConfig } from 'oxfmt';
 
 export default defineConfig({
+    // Non-source files that should not be reformatted in consumer repos. oxfmt
+    // otherwise rewrites LICENSE.md and CI workflow YAML on first adoption.
+    ignorePatterns: ['LICENSE.md', '.github/**'],
     singleQuote: true,
     tabWidth: 4,
     printWidth: 120,

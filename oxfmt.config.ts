@@ -4,5 +4,5 @@ import DefaultOxfmtConfig from './src/configs/oxfmt.config.js';
 
 export default defineConfig({
     ...DefaultOxfmtConfig,
-    ignorePatterns: ['test/configs/fixtures/**'],
+    ignorePatterns: [...DefaultOxfmtConfig.ignorePatterns, 'test/configs/fixtures/**'],
 });

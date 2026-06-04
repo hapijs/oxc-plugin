@@ -1,5 +1,5 @@
 export default {
-    jsPlugins: ['@hapi/oxc-plugin', 'oxlint-plugin-eslint'],
+    jsPlugins: ['@hapi/oxc-plugin'],
     plugins: ['node', 'unicorn'],
     env: {
         builtin: true,
@@ -11,6 +11,8 @@ export default {
         '@hapi/for-loop': ['warn', { maxDepth: 3, startIterator: 'i' }],
         '@hapi/no-var': 'error',
         '@hapi/no-arrowception': 'error',
+        '@hapi/consistent-this': ['error', 'self'],
+        '@hapi/one-var': ['error', 'never'],
 
         'no-constant-condition': 'error',
         'no-undef': ['error', { typeof: false }],
@@ -71,9 +73,5 @@ export default {
         // Off: hapi style deliberately over-escapes characters in regex character classes
         // and literals for readability (e.g. `[\!\:\|]`). oxlint enables this by default.
         'no-useless-escape': 'off',
-
-        // Unsupported
-        'eslint-js/consistent-this': ['error', 'self'],
-        'eslint-js/one-var': ['error', 'never'],
     },
 };

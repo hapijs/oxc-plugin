@@ -1,6 +1,4 @@
-import { defineRule } from '@oxlint/plugins';
-
-export default defineRule({
+export default {
     meta: {
         type: 'suggestion',
         docs: {
@@ -52,4 +50,4 @@ export default defineRule({
             VariableDeclarator: checkVariable,
         };
     },
-});
+};

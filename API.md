@@ -81,6 +81,24 @@ Functions can still be returned by arrow functions whose bodies use curly braces
 
 This rule does not accept any configuration options.
 
+### consistent-this
+
+Enforces consistent naming when capturing the current execution context in a variable.
+
+The rule takes a list of permitted alias names. In the recommended configuration the only permitted alias is
+`self`, so `const self = this;` is allowed while `const that = this;` is reported. It also reports a permitted
+alias that is assigned a value other than `this` (for example `const self = 5;`).
+
+Checks are performed at assignment sites. An alias that is declared but never assigned `this` (for example a
+bare `let self;`) is not reported.
+
+### one-var
+
+Requires each variable to be declared in its own statement. Combined declarations such as `let a, b;` or
+`const x = 1, y = 2;` are reported and should be split into separate statements.
+
+This rule is configured with the string `'never'` in the recommended configuration.
+
 ## Vitest plugin
 
 This plugin also exposes a [Vitest](https://vitest.dev) plugin at `@hapi/oxc-plugin/vitest`. It runs

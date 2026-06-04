@@ -1,6 +1,4 @@
-import { defineRule } from '@oxlint/plugins';
-
-export default defineRule({
+export default {
     meta: {
         type: 'problem',
         docs: {
@@ -26,4 +24,4 @@ export default defineRule({
             ArrowFunctionExpression: check,
         };
     },
-});
+};

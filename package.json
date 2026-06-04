@@ -42,13 +42,9 @@
         "lint": "oxlint && oxfmt --check",
         "lint:fix": "oxlint --fix && oxfmt --write"
     },
-    "dependencies": {
-        "@oxlint/plugins": "1.68.0",
-        "globals": "^17.6.0",
-        "oxlint-plugin-eslint": "1.68.0"
-    },
     "devDependencies": {
         "@hapi/oxc-plugin": "file:.",
+        "@oxlint/plugins": "1.68.0",
         "@vitest/coverage-v8": "^4.1.8",
         "oxfmt": "^0.53.0",
         "oxlint": "^1.68.0",

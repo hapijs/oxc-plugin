@@ -1,7 +1,5 @@
 // Based on https://github.com/eslint/eslint/blob/master/lib/rules/no-var.js
 
-import { defineRule } from '@oxlint/plugins';
-
 const internals = {
     scopeTypes: new Set([
         'Program',
@@ -13,7 +11,7 @@ const internals = {
     ]),
 };
 
-export default defineRule({
+export default {
     meta: {
         type: 'suggestion',
         docs: {
@@ -52,7 +50,7 @@ export default defineRule({
             },
         };
     },
-});
+};
 
 internals.getScopeNode = function (node) {
     if (internals.scopeTypes.has(node.type)) {

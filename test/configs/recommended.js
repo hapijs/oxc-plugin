@@ -130,7 +130,7 @@ describe.concurrent('recommended config', () => {
 
             const msg = results.messages[0];
 
-            expect(msg.ruleId).toBe('eslint-js(one-var)');
+            expect(msg.ruleId).toBe('@hapi(one-var)');
             expect(msg.severity).toBe(2);
             expect(msg.message).toBe("Split 'let' declarations into multiple statements.");
             expect(msg.line).toBe(5);

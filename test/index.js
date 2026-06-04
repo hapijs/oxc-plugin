@@ -9,10 +9,12 @@ describe('ESLint Plugin', () => {
 
         const rules = Object.keys(Plugin.rules);
 
-        expect(rules.length).toBe(4);
+        expect(rules.length).toBe(6);
         expect(rules.includes('capitalize-modules')).toBe(true);
         expect(rules.includes('for-loop')).toBe(true);
         expect(rules.includes('no-var')).toBe(true);
         expect(rules.includes('no-arrowception')).toBe(true);
+        expect(rules.includes('consistent-this')).toBe(true);
+        expect(rules.includes('one-var')).toBe(true);
     });
 });
