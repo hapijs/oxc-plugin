@@ -71,12 +71,6 @@ The first variable iterator name to use. This defaults to `'i'`.
 
 Enforces the usage of var declarations only in try-catch scope.
 
-### scope-start
-
-Enforces a new line at the beginning of function scope.
-
-_Note: This rule is currently disabled in the recommended configuration due to a conflict with oxfmt._
-
 ### no-arrowception
 
 Prevents arrow functions that implicitly create additional arrow functions.
@@ -92,6 +86,10 @@ This rule does not accept any configuration options.
 This plugin also exposes a [Vitest](https://vitest.dev) plugin at `@hapi/oxc-plugin/vitest`. It runs
 the oxlint and oxfmt checks as a dedicated test project, so linting and formatting violations surface
 as failing tests in your existing test run.
+
+The Vitest plugin requires `vitest` >= 4 in your project. It is an optional part of this package — the
+`oxlint` and `oxfmt` configurations work without `vitest` installed — so `vitest` is not declared as a
+peer dependency.
 
 To use it, add [`@hapi/oxc-plugin`](https://github.com/hapijs/oxc-plugin) to your `package.json`, then
 in your `vitest.config.js` add:

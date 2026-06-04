@@ -73,22 +73,6 @@ describe.concurrent('recommended config', () => {
             expect(msg.column).toBe(5);
         });
 
-        it.skip('enforces @hapi/scope-start', async ({ expect }) => {
-            const output = await lintFile('fixtures/hapi-scope-start.js');
-            const results = output[0];
-
-            expect(results.errorCount).toBe(0);
-            expect(results.warningCount).toBe(1);
-
-            const msg = results.messages[0];
-
-            expect(msg.ruleId).toBe('@hapi(scope-start)');
-            expect(msg.severity).toBe(1);
-            expect(msg.message).toBe('Missing blank line at beginning of function.');
-            expect(msg.line).toBe(2);
-            expect(msg.column).toBe(13);
-        });
-
         it('enforces @hapi/capitalize-modules', async ({ expect }) => {
             const output = await lintFile('fixtures/hapi-capitalize-modules.js');
             const results = output[0];

@@ -10,7 +10,6 @@ export default {
         '@hapi/capitalize-modules': ['warn', 'global-scope-only'],
         '@hapi/for-loop': ['warn', { maxDepth: 3, startIterator: 'i' }],
         '@hapi/no-var': 'error',
-        // '@hapi/scope-start': 'warn', // This rule conflicts with oxfmt for now
         '@hapi/no-arrowception': 'error',
 
         'no-constant-condition': 'error',
@@ -35,7 +34,9 @@ export default {
         'no-new-wrappers': 'error',
         'no-ex-assign': 'error',
         'prefer-const': ['error', { destructuring: 'all' }],
-        'func-style': ['error', 'expression'],
+        // Off for ESM: packages use exported `function` declarations (`export function foo() {}`),
+        // not the CJS-era `const foo = function () {}` expression form.
+        'func-style': 'off',
         'no-unsafe-finally': 'error',
         'no-useless-computed-key': 'error',
         'require-await': 'error',
@@ -53,7 +54,6 @@ export default {
         'object-shorthand': ['error', 'properties'],
         'node/handle-callback-err': ['error', '^(e|err|error)$'],
         'unicorn/no-new-buffer': 'error',
-        'node/no-new-require': 'error',
         'typescript/dot-notation': 'warn',
         'eslint/no-object-constructor': 'error',
         'eslint/no-new-native-nonconstructor': 'error',
@@ -68,6 +68,9 @@ export default {
         'eslint/no-regex-spaces': 'off',
         'eslint/no-lonely-if': 'off',
         'eslint/no-sparse-arrays': 'error',
+        // Off: hapi style deliberately over-escapes characters in regex character classes
+        // and literals for readability (e.g. `[\!\:\|]`). oxlint enables this by default.
+        'no-useless-escape': 'off',
 
         // Unsupported
         'eslint-js/consistent-this': ['error', 'self'],
