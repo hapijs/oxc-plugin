@@ -1,0 +1,4 @@
+# Normalize line endings to LF on checkout across platforms so the oxfmt
+# snapshot tests produce identical output on Windows runners (default
+# autocrlf=true would otherwise check out fixtures as CRLF).
+* text=auto eol=lf

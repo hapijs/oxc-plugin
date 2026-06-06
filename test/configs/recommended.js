@@ -9,7 +9,7 @@ describe.concurrent('recommended config', () => {
         const configPath = Path.join(import.meta.dirname, './oxlint.test.config.ts');
 
         const checkFile = function (filePath) {
-            const command = `./node_modules/.bin/oxlint -c ${configPath} --format json --no-ignore --disable-nested-config ${filePath}`;
+            const command = `oxlint -c ${configPath} --format json --no-ignore --disable-nested-config ${filePath}`;
 
             let output;
             try {
@@ -378,7 +378,7 @@ describe.concurrent('recommended config', () => {
 
         const formatFile = (file) => {
             const filePath = Path.join(fixturesDir, file);
-            const command = `./node_modules/.bin/oxfmt -c ${configPath} --stdin-filepath ${filePath}`;
+            const command = `oxfmt -c ${configPath} --stdin-filepath ${filePath}`;
 
             try {
                 const output = execSync(command, {
