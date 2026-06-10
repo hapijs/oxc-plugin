@@ -15,6 +15,7 @@ export default function (options = {}) {
                 test: {
                     name: '@hapi/oxc-plugin',
                     include: [Path.join(import.meta.dirname, 'vitest.test.js')],
+                    exclude: [],
                 },
             });
         },
