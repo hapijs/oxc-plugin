@@ -51,6 +51,7 @@ export default {
         'object-shorthand': ['error', 'properties'],
         'node/handle-callback-err': ['error', '^(e|err|error)$'],
         'unicorn/no-new-buffer': 'error',
+        'unicorn/no-new-array': 'off',
         'typescript/dot-notation': 'warn',
         'eslint/no-object-constructor': 'error',
         'eslint/no-new-native-nonconstructor': 'error',
