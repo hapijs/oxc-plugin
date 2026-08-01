@@ -1,6 +1,6 @@
 {
     "name": "@hapi/oxc-plugin",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Oxlint & Oxfmt plugin containing hapi style guide rules and config",
     "keywords": [
         "hapi",
