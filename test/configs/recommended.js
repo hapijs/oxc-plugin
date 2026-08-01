@@ -321,6 +321,15 @@ describe.concurrent('recommended config', () => {
             expect(msg.column).toBe(33);
         });
 
+        it('does not enforce handle-callback-err in type declarations', async ({ expect }) => {
+            const output = await lintFile('fixtures/handle-callback-err.d.ts');
+            const results = output[0];
+
+            expect(results.errorCount).toBe(0);
+            expect(results.warningCount).toBe(0);
+            expect(results.messages).toEqual([]);
+        });
+
         it('enforces no-dupe-keys rule', async ({ expect }) => {
             const output = await lintFile('fixtures/no-dupe-keys.js');
             const results = output[0];
