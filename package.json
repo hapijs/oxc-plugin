@@ -43,18 +43,18 @@
         "lint:fix": "oxlint --fix && oxfmt --write"
     },
     "dependencies": {
-        "@oxlint/plugins": "^1.72.0"
+        "@oxlint/plugins": "^1.76.0"
     },
     "devDependencies": {
         "@hapi/oxc-plugin": "file:.",
-        "@vitest/coverage-v8": "^4.1.9",
-        "oxfmt": "^0.57.0",
-        "oxlint": "^1.72.0",
-        "vitest": "^4.1.9"
+        "@vitest/coverage-v8": "^4.1.10",
+        "oxfmt": "^0.61.0",
+        "oxlint": "^1.76.0",
+        "vitest": "^4.1.10"
     },
     "peerDependencies": {
-        "oxfmt": ">=0.57.0",
-        "oxlint": ">=1.72.0"
+        "oxfmt": ">=0.61.0",
+        "oxlint": ">=1.76.0"
     },
     "engines": {
         "node": ">=22"
