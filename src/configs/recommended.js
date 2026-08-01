@@ -67,4 +67,13 @@ export default {
         'eslint/no-lonely-if': 'off',
         'eslint/no-sparse-arrays': 'error',
     },
+    overrides: [
+        {
+            // Type declarations have no bodies, so an `err` parameter can never be "handled"
+            files: ['**/*.d.ts', '**/*.d.mts', '**/*.d.cts'],
+            rules: {
+                'node/handle-callback-err': 'off',
+            },
+        },
+    ],
 };
