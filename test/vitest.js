@@ -32,6 +32,7 @@ describe('vitest plugin', () => {
         const injected = await internals.inject(plugin);
 
         expect(injected).toHaveLength(1);
+        expect(injected[0].extends).toBe(false);
         expect(injected[0].test.name).toBe('@hapi/oxc-plugin');
         expect(injected[0].test.include).toHaveLength(1);
         expect(injected[0].test.include[0]).toMatch(/vitest\.test\.js$/);
