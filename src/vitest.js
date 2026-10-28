@@ -5,7 +5,7 @@ export default function (options = {}) {
 
     return {
         name: '@hapi/oxc-plugin:vitest',
-        async configureVitest({ injectTestProjects }) {
+        async configureVitest({ project, injectTestProjects }) {
             await injectTestProjects({
                 // Vitest 5 makes inline projects extend the declaring config by default, which
                 // would run the host's own tests a 2nd time under this project.
@@ -19,6 +19,9 @@ export default function (options = {}) {
                     name: '@hapi/oxc-plugin',
                     include: [Path.join(import.meta.dirname, 'vitest.test.js')],
                     exclude: [],
+                    // Without extending, our maxWorkers default ignores `vitest run` and follows the TTY,
+                    // vitest 5 then refuses to group it with the host project.
+                    maxWorkers: project.config.maxWorkers,
                 },
             });
         },
