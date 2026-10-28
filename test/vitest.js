@@ -9,6 +9,7 @@ const internals = {};
 internals.inject = async function (plugin) {
     const injected = [];
     const context = {
+        project: { config: { maxWorkers: 3 } },
         injectTestProjects(config) {
             injected.push(config);
             return Promise.resolve([]);
@@ -34,6 +35,7 @@ describe('vitest plugin', () => {
         expect(injected).toHaveLength(1);
         expect(injected[0].extends).toBe(false);
         expect(injected[0].test.name).toBe('@hapi/oxc-plugin');
+        expect(injected[0].test.maxWorkers).toBe(3);
         expect(injected[0].test.include).toHaveLength(1);
         expect(injected[0].test.include[0]).toMatch(/vitest\.test\.js$/);
         expect(injected[0].define.__HAPI_OXC_OXLINT__).toBe(true);
