@@ -7,6 +7,9 @@ export default function (options = {}) {
         name: '@hapi/oxc-plugin:vitest',
         async configureVitest({ injectTestProjects }) {
             await injectTestProjects({
+                // Vitest 5 makes inline projects extend the declaring config by default, which
+                // would run the host's own tests a 2nd time under this project.
+                extends: false,
                 define: {
                     __HAPI_OXC_OXLINT__: oxlint,
                     __HAPI_OXC_OXFMT__: oxfmt,
