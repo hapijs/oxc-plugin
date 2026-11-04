@@ -330,6 +330,15 @@ describe.concurrent('recommended config', () => {
             expect(results.messages).toEqual([]);
         });
 
+        it('does not enforce no-redeclare in type declarations', async ({ expect }) => {
+            const output = await lintFile('fixtures/no-redeclare.d.ts');
+            const results = output[0];
+
+            expect(results.errorCount).toBe(0);
+            expect(results.warningCount).toBe(0);
+            expect(results.messages).toEqual([]);
+        });
+
         it('enforces no-dupe-keys rule', async ({ expect }) => {
             const output = await lintFile('fixtures/no-dupe-keys.js');
             const results = output[0];
