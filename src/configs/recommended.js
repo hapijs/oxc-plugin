@@ -69,10 +69,12 @@ export default {
     },
     overrides: [
         {
-            // Type declarations have no bodies, so an `err` parameter can never be "handled"
             files: ['**/*.d.ts', '**/*.d.mts', '**/*.d.cts'],
             rules: {
+                // Type declarations have no bodies, so an `err` parameter can never be "handled"
                 'node/handle-callback-err': 'off',
+                // Classes and functions merge with namespaces of the same name, tsc already checks real redeclarations
+                'eslint/no-redeclare': 'off',
             },
         },
     ],
